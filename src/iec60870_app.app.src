@@ -1,0 +1,17 @@
+{application, iec60870_app,
+ [
+  {description, "IEC60870-5 Raw Application"},
+  {vsn, "1.0.0"},
+  {registered, []},
+  {mod, {iec60870_app, []}},
+  {applications,
+   [kernel,
+    stdlib,
+    iec60870
+   ]},
+  {env, []},
+  {modules, []},
+  {licenses, ["Apache-2.0"]},
+  {links, []}
+ ]
+}.
