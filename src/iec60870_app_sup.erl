@@ -37,9 +37,11 @@ init([]) ->
   {ok, {Supervisor, [Application]}}.
 
 init_application(Config) ->
-  AppPID = loop(Config),
-  ?LOGINFO("Application started: ~p", [AppPID]),
-  {ok, AppPID}.
+  AppRef = loop(Config),
+  ?LOGINFO("Application started: ~p", [AppRef]),
+  PID = iec60870:get_pid(AppRef),
+  ?LOGINFO("Application PID: ~p", [PID]),
+  {ok, PID}.
 
 loop(Config) ->
   try start_application(Config) catch
